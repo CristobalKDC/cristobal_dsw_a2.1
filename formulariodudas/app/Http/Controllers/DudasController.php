@@ -16,12 +16,6 @@ class DudasController extends Controller
     {
         // Validación
         $request->validate([
-<<<<<<< HEAD
-            'correo' => 'required|email',
-            'modulo' => 'required|string|in:Programación,Base de Datos,Sistemas,Entornos de Desarrollo,Desarrollo Web',
-            'asunto' => 'required|string|max:50|regex:/^[^0-9]*$/',
-            'descripcion' => 'required|string|max:300'
-=======
             'correo' => 'required|email', 
             'asunto' => 'required|string|max:50',
             'descripcion' => 'required|string|max:300',
@@ -33,7 +27,6 @@ class DudasController extends Controller
             'asunto.not_regex' => 'El asunto no puede ser solo numérico.',
             'descripcion.required' => 'El campo descripción es obligatorio.',
             'descripcion.max' => 'La descripción no puede tener más de 300 caracteres.',
->>>>>>> a9ead9542c74bed984dca57bf5b387b8f1f167ff
         ]);
 
         // Recibir datos
