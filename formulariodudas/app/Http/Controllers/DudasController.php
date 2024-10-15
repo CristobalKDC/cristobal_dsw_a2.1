@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class DudasController extends Controller
 {
@@ -18,8 +19,7 @@ class DudasController extends Controller
             'correo' => 'required|email',
             'modulo' => 'required|string|in:Programación,Base de Datos,Sistemas,Entornos de Desarrollo,Desarrollo Web',
             'asunto' => 'required|string|max:50|regex:/^[^0-9]*$/',
-            'descripcion' => 'required|string|max:300',
-            'temas' => 'array|min:1|max:3',
+            'descripcion' => 'required|string|max:300'
         ]);
 
         // Recibir datos
@@ -27,11 +27,10 @@ class DudasController extends Controller
         $modulo = $request->modulo;
         $asunto = $request->asunto;
         $descripcion = $request->descripcion;
-        $temas = isset($request->temas) ? implode(',', $request->temas) : '';
 
         // Línea en formato CSV
         $linea = sprintf('"%s";"%s";"%s";"%s";"%s"' . PHP_EOL,
-            $correo, $modulo, $asunto, $descripcion, $temas
+            $correo, $modulo, $asunto, $descripcion
         );
 
         // Ruta del archivo

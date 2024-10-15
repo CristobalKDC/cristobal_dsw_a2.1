@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\DudasController;
 
 Route::get('/', [DudasController::class, 'mostrarFormulario']);
